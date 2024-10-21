@@ -48,3 +48,31 @@ class Section {
     }
 }
 
+// 3. Patron Class
+class Patron {
+    constructor(name) {
+        this.name = name;
+        this.borrowedBooks = [];
+    }
+
+    borrowBook(book) {
+        if (book.isAvailable) {
+            book.isAvailable = false;
+            this.borrowedBooks.push(book);
+            console.log(`${this.name} borrowed ${book.title}.`);
+        } else {
+            console.log(`${book.title} is not available.`);
+        }
+    }
+
+    returnBook(book) {
+        const index = this.borrowedBooks.indexOf(book);
+        if (index !== -1) {
+            book.isAvailable = true;
+            this.borrowedBooks.splice(index, 1);
+            console.log(`${this.name} returned ${book.title}.`);
+        } else {
+            console.log(`${this.name} does not have this book.`);
+        }
+    }
+}
