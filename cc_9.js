@@ -76,3 +76,17 @@ class Patron {
         }
     }
 }
+
+// 4. VIPPatron Class (Inheritance)
+class VIPPatron extends Patron {
+    constructor(name, priority) {
+        super(name);
+        this.priority = priority;
+    }
+
+    borrowBook(book) {
+        // VIP logic, for now, it behaves the same as Patron but can be extended
+        super.borrowBook(book);
+    }
+}
+
